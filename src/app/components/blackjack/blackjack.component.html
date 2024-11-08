@@ -1,0 +1,16 @@
+<h1>Black Jack</h1>
+
+<button (click)="newHand()">New Hand</button>
+
+<p>Game Status: {{currentGame.outcome}}</p>
+<button [disabled]="currentGame.gameOver" (click)="action('hit')">Hit</button>
+<button [disabled]="currentGame.gameOver" (click)="action('stand')">Stand</button>
+<p>Player Score: {{currentGame.playerScore}}</p>
+@for (c of currentGame.playerCards; track $index) {
+    <img height="200px" [src]="c.image" />
+}
+
+<p>Dealer Score: {{currentGame.dealerScore}}</p>
+@for (c of currentGame.dealerCards; track $index) {
+    <img height="200px" [src]="c.image" />
+}
